@@ -1,0 +1,9 @@
+name: simple-mmo-classes
+version: '1.0'
+main: dev.mowl.simpleMmoClasses.SimpleMMOClassesPlugin
+api-version: '1.21'
+authors: [ Gleb Alfutin ]
+description: A simple plugin for adding mage, warrior and archer class in game
+website: mowl.dev
+commands:
+  class:

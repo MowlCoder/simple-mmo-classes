@@ -1,0 +1,64 @@
+archer:
+  leftAttackCooldown: 5000
+  rightAttackCooldown: 300
+  weapon:
+    name: "Hunter's bow"
+  arrowAngles:
+    - 0
+    - 10
+    - 20
+    - 30
+    - 330
+    - 340
+    - 350
+  potions:
+    INVISIBILITY:
+      duration: 60
+      amplifier: 10
+    ABSORPTION:
+      duration: 60
+      amplifier: 3
+    SPEED:
+      duration: 60
+      amplifier: 1
+
+warrior:
+  leftAttackCooldown: 0
+  rightAttackCooldown: 5000
+  weapon:
+    name: "Warrior's sword"
+  hitCountForSpecial: 6
+  lightingCount: 3
+  potions:
+    STRENGTH:
+      duration: 100
+      amplifier: 3
+    RESISTANCE:
+      duration: 100
+      amplifier: 1
+    ABSORPTION:
+      duration: 100
+      amplifier: 6
+
+mage:
+  leftAttackCooldown: 7500
+  rightAttackCooldown: 350
+  weapon:
+    name: "Magician's staff"
+  explosionRadius: 4
+  potions:
+    FIRE_RESISTANCE:
+      duration: 60
+      amplifier: 10
+    INVISIBILITY:
+      duration: 60
+      amplifier: 10
+    ABSORPTION:
+      duration: 60
+      amplifier: 3
+
+messages:
+  invalid_usage: "&4Invalid usage of command, use /class <class_name>"
+  invalid_class: "&4Invalid class name! Available classes - %class_list%"
+  select_class_success: "&2You successfully selected class - %selected_class%"
+  ability_cooldown: "&4You can't use this ability now. Wait &l%cooldown%&r&4 seconds!"

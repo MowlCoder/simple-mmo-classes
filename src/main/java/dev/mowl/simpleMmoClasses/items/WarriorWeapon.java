@@ -1,6 +1,6 @@
 package dev.mowl.simpleMmoClasses.items;
 
-import dev.mowl.simpleMmoClasses.config.MainConfig;
+import dev.mowl.simpleMmoClasses.config.ConfigManager;
 import dev.mowl.simpleMmoClasses.config.WarriorConfig;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -57,6 +57,6 @@ public class WarriorWeapon extends ClassWeapon {
     }
 
     private WarriorConfig getConfig() {
-        return MainConfig.getInstance().getWarriorConfig();
+        return ConfigManager.getInstance().getWarriorConfig();
     }
 }

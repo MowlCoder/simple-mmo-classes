@@ -58,7 +58,11 @@ mage:
       amplifier: 3
 
 messages:
+  invalid_sender: "&4This command only available for players"
   invalid_usage: "&4Invalid usage of command, use /class <class_name>"
   invalid_class: "&4Invalid class name! Available classes - %class_list%"
+  not_have_class: "&4You haven't selected any class"
   select_class_success: "&2You successfully selected class - %selected_class%"
+  give_weapon_success: "&2You received weapon of your class"
+  already_have_weapon: "&4You are already have a weapon of your class"
   ability_cooldown: "&4You can't use this ability now. Wait &l%cooldown%&r&4 seconds!"

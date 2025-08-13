@@ -1,7 +1,7 @@
 package dev.mowl.simpleMmoClasses.items;
 
 import dev.mowl.simpleMmoClasses.config.MageConfig;
-import dev.mowl.simpleMmoClasses.config.MainConfig;
+import dev.mowl.simpleMmoClasses.config.ConfigManager;
 import org.bukkit.Material;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Player;
@@ -47,6 +47,6 @@ public class MageWeapon extends ClassWeapon {
     }
 
     private MageConfig getConfig() {
-        return MainConfig.getInstance().getMageConfig();
+        return ConfigManager.getInstance().getMageConfig();
     }
 }

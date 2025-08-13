@@ -5,7 +5,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class MainConfig {
+public class ConfigManager {
     private final MageConfig mageConfig;
     private final WarriorConfig warriorConfig;
     private final ArcherConfig archerConfig;
@@ -13,9 +13,9 @@ public class MainConfig {
 
     private NamespacedKey playerClassKey;
 
-    private static MainConfig instance;
+    private static ConfigManager instance;
 
-    public MainConfig() {
+    public ConfigManager() {
         mageConfig = new MageConfig();
         warriorConfig = new WarriorConfig();
         archerConfig = new ArcherConfig();
@@ -35,9 +35,9 @@ public class MainConfig {
         getInstance().setPlayerClassKey(plugin, "selected_class");
     }
 
-    public static MainConfig getInstance() {
+    public static ConfigManager getInstance() {
         if (instance == null) {
-            instance = new MainConfig();
+            instance = new ConfigManager();
         }
 
         return instance;

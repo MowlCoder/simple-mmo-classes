@@ -1,9 +1,8 @@
 package dev.mowl.simpleMmoClasses.items;
 
 import dev.mowl.simpleMmoClasses.config.ArcherConfig;
-import dev.mowl.simpleMmoClasses.config.MainConfig;
+import dev.mowl.simpleMmoClasses.config.ConfigManager;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -71,6 +70,6 @@ public class ArcherWeapon extends ClassWeapon {
     }
 
     private ArcherConfig getConfig() {
-        return MainConfig.getInstance().getArcherConfig();
+        return ConfigManager.getInstance().getArcherConfig();
     }
 }

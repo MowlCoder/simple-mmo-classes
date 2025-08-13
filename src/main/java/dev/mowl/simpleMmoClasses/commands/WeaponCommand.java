@@ -1,10 +1,9 @@
 package dev.mowl.simpleMmoClasses.commands;
 
 import dev.mowl.simpleMmoClasses.config.ConfigManager;
-import dev.mowl.simpleMmoClasses.enums.PlayerClass;
 import dev.mowl.simpleMmoClasses.storages.PlayerClassStorage;
-import dev.mowl.simpleMmoClasses.utils.ChatUtil;
 import dev.mowl.simpleMmoClasses.managers.PlayerClassManager;
+import dev.mowl.simpleMmoClasses.utils.ChatUtil;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -13,12 +12,11 @@ import org.bukkit.entity.Player;
 
 import java.util.List;
 
-public class ClassCommand implements CommandExecutor, TabExecutor {
+public class WeaponCommand implements CommandExecutor, TabExecutor {
     private final PlayerClassStorage playerClassStorage;
-    private final List<String> CLASS_NAMES = PlayerClass.toLowerStrings();
 
-    public ClassCommand(
-        PlayerClassStorage playerClassStorage
+    public WeaponCommand(
+            PlayerClassStorage playerClassStorage
     ) {
         this.playerClassStorage = playerClassStorage;
     }
@@ -33,35 +31,22 @@ public class ClassCommand implements CommandExecutor, TabExecutor {
             return true;
         }
 
-        if (strings.length != 1) {
+        var info = this.playerClassStorage.getPlayerInfo(player.getUniqueId());
+        if (info == null) {
             ChatUtil.sendMessage(
                 player,
-                ConfigManager.getInstance().getMessage("invalid_usage")
+                ConfigManager.getInstance().getMessage("not_have_class")
             );
             return true;
         }
 
-        String className = strings[0];
-        PlayerClass playerClass;
+        boolean isWeaponGiven = PlayerClassManager.giveWeapon(player, info);
 
-        try {
-            playerClass = PlayerClass.valueOf(className.toUpperCase());
-        } catch (Exception e) {
-            ChatUtil.sendMessage(
-                player,
-                ConfigManager.getInstance()
-                        .getMessage("invalid_usage")
-                        .replace("%class_list%", CLASS_NAMES.toString())
-            );
-            return true;
-        }
-
-        PlayerClassManager.selectClass(player, playerClass);
         ChatUtil.sendMessage(
             player,
-            ConfigManager.getInstance()
-                    .getMessage("select_class_success")
-                    .replace("%selected_class%", className.toUpperCase())
+            ConfigManager.getInstance().getMessage(
+                isWeaponGiven ? "give_weapon_success" : "already_have_weapon"
+            )
         );
 
         return true;
@@ -69,10 +54,6 @@ public class ClassCommand implements CommandExecutor, TabExecutor {
 
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
-        if (strings.length == 1) {
-            return CLASS_NAMES;
-        }
-
-        return null;
+        return List.of();
     }
 }

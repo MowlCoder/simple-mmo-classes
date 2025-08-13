@@ -1,5 +1,5 @@
 name: simple-mmo-classes
-version: '1.0'
+version: '1.1'
 main: dev.mowl.simpleMmoClasses.SimpleMMOClassesPlugin
 api-version: '1.21'
 authors: [ Gleb Alfutin ]
@@ -7,3 +7,10 @@ description: A simple plugin for adding mage, warrior and archer class in game
 website: mowl.dev
 commands:
   class:
+    description: A command allow you to select class and give weapon of chosen class
+    aliases: cls
+    usage: "Usage: /<command> [warrior|archer|mage]"
+  weapon:
+    description: Give you a weapon of your class if doesn't have
+    aliases: wpn
+    usage: "Usage: /<command>"
